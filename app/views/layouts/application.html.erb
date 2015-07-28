@@ -2,13 +2,48 @@
 <html>
 <head>
   <title>BD2Go</title>
+
+  <link rel="stylesheet" media="screen" href="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  <script src="http://code.jquery.com/jquery.js"></script>
+  <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+  <!-- <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' /> -->
+  <script src='https://api.tiles.mapbox.com/mapbox.js/v2.2.1/mapbox.js'></script>
+  <link href='https://api.tiles.mapbox.com/mapbox.js/v2.2.1/mapbox.css' rel='stylesheet' />
+
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+<div class="container">
 
-<%= yield %>
+  <!-- login -->
+  <div class="hdr-login navbar navbar-right">
+    <ul class="nav navbar-nav">
+      <% if @current_user %>
+          <li><a href="#">Welcome back <%= @current_user.name %></a></li>
+          <li><%= link_to "logout", logout_path %></li>
+      <% else %>
+          <li><%= link_to "login", login_path %></li>
+          <li><%= link_to "signup", signup_path %></li>
+      <% end %>
+    </ul>
+  </div>
+
+
+
+  <div class="app-header">
+      <a href="<%= root_path %>"><h1><em>BD 2 Go</em></h1></a>
+  </div>
+
+  <div class="row">
+    <%= yield %>
+  </div>
+
+
+</div>
+
 
 </body>
 </html>

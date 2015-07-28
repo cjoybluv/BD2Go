@@ -1,0 +1,6 @@
+#SQL-Customer_load.txt
+
+COPY customers
+  (id, name, phone, contact, email, data_sheet,
+    acct_status, acct_type, created_at, updated_at, user_id, address)
+  FROM '/users/cjoybluv/code/BD2Go/documents/customers.csv' DELIMITER ',' CSV;
