@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'notes/index'
+
   get 'customers/index'
 
   get 'customers/show'

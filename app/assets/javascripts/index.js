@@ -1,8 +1,10 @@
 $(function() {
 
+
+
   L.mapbox.accessToken = 'pk.eyJ1IjoiY2pveWJsdXYiLCJhIjoiNzQ3MWQzMjNiOGI2ZDQzOTJhNGFlY2YyMzZiMjg5NDIifQ.A6YxoDaBVo73wIutjHFrQg';
-  // var map = L.mapbox.map('map', 'cjoybluv.n0012j3j');
-  var map = L.mapbox.map('map', 'cjoybluv.n0012j3j');
+  var map = L.mapbox.map('map', 'cjoybluv.n0012j3j')
+      .setView([47.613968, -122.335195], 12);
 
   // Initialize the geocoder control and add it to the map.
   var geocoderControl = L.mapbox.geocoderControl('mapbox.places');

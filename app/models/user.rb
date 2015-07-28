@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
 
   has_many :customers
+  has_many :notes
 
   has_secure_password
 

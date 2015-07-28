@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150728101659) do
+ActiveRecord::Schema.define(version: 20150728113702) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,6 +33,20 @@ ActiveRecord::Schema.define(version: 20150728101659) do
 
   add_index "customers", ["user_id"], name: "index_customers_on_user_id", using: :btree
 
+  create_table "notes", force: :cascade do |t|
+    t.string   "subject"
+    t.text     "body"
+    t.datetime "due_date_time"
+    t.boolean  "completed"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.integer  "customer_id"
+    t.integer  "user_id"
+  end
+
+  add_index "notes", ["customer_id"], name: "index_notes_on_customer_id", using: :btree
+  add_index "notes", ["user_id"], name: "index_notes_on_user_id", using: :btree
+
   create_table "users", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
@@ -42,4 +56,6 @@ ActiveRecord::Schema.define(version: 20150728101659) do
   end
 
   add_foreign_key "customers", "users"
+  add_foreign_key "notes", "customers"
+  add_foreign_key "notes", "users"
 end
