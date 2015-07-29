@@ -20,10 +20,14 @@
             <% due = note.due_date_time %>
             <% if (due.hour+due.min==0) %>
               Task Due: <%= due.strftime("%m-%d-%Y") %>
+              <a href="#"><span class="pull-right glyphicon glyphicon-check"></span></a>
             <% else %>
               Appt: <%= due.strftime("%H:%M - %m-%d-%Y") %>
             <% end %>
-          </p class="note-due">
+            <% if (note.customer_id != '') %>
+              <a href="#"><span class="pull-right glyphicon glyphicon-map-marker"></span></a>
+            <% end %>
+          </p>
           <p class="note-subject"><%= note.subject %></p>
           <p class="note-body"><%= note.body %></p>
         </div>
