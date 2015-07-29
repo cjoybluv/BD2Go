@@ -6,6 +6,7 @@ COPY customers
   FROM '/users/cjoybluv/code/BD2Go/documents/customers.csv' DELIMITER ',' CSV;
 
 
+DELETE FROM notes;
 COPY notes
   (id, subject, body, due_date_time, completed, created_at,
    updated_at, customer_id, user_id)

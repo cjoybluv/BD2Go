@@ -2,13 +2,16 @@
 <div class="row">
   <div class="col-sm-4 col-md-4 col-lg-4">
     <h4>When &amp; What</h4>
-    <%= bootstrap_form_for(:params) do |f| %>
+    <%= bootstrap_form_for(:params, layout: :inline, hide_label: true) do |f| %>
 
-      <%= f.select :when_choice,
-        options_for_select([['Today','Today'],['This Week','This Week'],['This Month','This Month']], @when_choice),
-       { :class => 'span3 controls controls-row' }
-       %>
-       <%= f.submit "index_choice"%>
+      <div class="input-append">
+        <%= f.select :when_choice,
+          options_for_select([['Today','Today'],['This Week','This Week'],['This Month','This Month']], @when_choice),
+         { :class => 'span3 controls controls-row' },
+         hide_label: true
+        %>
+        <%= f.submit "index_choice"%>
+      </div>
    <% end %>
 
     <div class="calendar-block well">

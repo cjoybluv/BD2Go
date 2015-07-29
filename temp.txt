@@ -43,3 +43,17 @@ another solution:  dropdown change submit
 </div>
 
 <% end %>
+
+
+
+
+SQL:
+Customer.find_by_sql("SELECT * FROM customers WHERE name like 'L%'")
+
+Customer.find_by_sql("SELECT * FROM customers WHERE CONCAT(name,address,contact) like '%Freddie%'");
+
+Customer.find_by_sql("SELECT * FROM customers WHERE CONCAT(name,address,contact) like '%Seattle%'")
+
+
+
+

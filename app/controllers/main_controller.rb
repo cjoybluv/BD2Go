@@ -12,9 +12,18 @@ class MainController < ApplicationController
         start_date = Date.new(time.year,time.month,time.day)
         end_date = start_date+1
       when "This Week"
-        start_date = Date.new(time.year,time.month,time.day)
+        start_date = Date.new(time.year,time.month,time.day-time.wday)
         end_date = start_date+7
+      when "This Month"
+        start_date = Date.new(time.year,time.month,1)
+        month_ends = [31,28,31,30,31,30,31,31,30,31,30,31]
+        end_day = month_ends[time.month-1]
+        if (time.month==2 && time.year%4==0)
+          end_day = 29
+        end
+        end_date = Date.new(time.year,time.month,end_day)
       end
+
       @notes = User.find(session[:user_id]).notes
        .where("due_date_time >= :start_date AND due_date_time < :end_date",
                {start_date: start_date, end_date: end_date})
