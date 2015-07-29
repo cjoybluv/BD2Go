@@ -10,6 +10,7 @@ class SessionsController < ApplicationController
   def create
     # render plain: "create session"
     # render json: params
+    # return
     user = User.authenticate(params[:user][:email],params[:user][:password])
     if user
       # correct email / password

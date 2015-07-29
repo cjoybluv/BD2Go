@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
 
-  before_action :current_user
+  before_action :current_user, :when_choice
 
   def current_user
     @current_user ||= User.find_by_id(session[:user_id])
@@ -17,5 +17,8 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def when_choice
+    @when_choice ||= session[:when_choice] || "Today"
+  end
 
 end

@@ -1,7 +1,16 @@
 
 <div class="row">
   <div class="col-sm-4 col-md-4 col-lg-4">
-    <h3>When &amp; What</h3>
+    <h4>When &amp; What</h4>
+    <%= bootstrap_form_for(:params) do |f| %>
+
+      <%= f.select :when_choice,
+        options_for_select([['Today','Today'],['This Week','This Week'],['This Month','This Month']], @when_choice),
+       { :class => 'span3 controls controls-row' }
+       %>
+       <%= f.submit "index_choice"%>
+   <% end %>
+
     <div class="calendar-block well">
       <% @notes.each do |note| %>
         <h5><%= note.due_date_time %></h5>
@@ -11,7 +20,7 @@
     </div>
   </div>
   <div class="col-sm-4 col-md-4 col-lg-4">
-    <h3>Who</h3>
+    <h4>Who</h4>
     <div class="customer-block well">
       <% @customers.each do |customer| %>
         <p><%= customer.name %></p>
@@ -20,7 +29,7 @@
     </div>
   </div>
   <div class="col-sm-4 col-md-4 col-lg-4">
-  <h3>Where</h3>
+  <h4>Where</h4>
     <div id="map" style="height:400px;background-color:blue;"></div>
 
     <button id="mapButton">Clear Markers</button>

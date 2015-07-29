@@ -1,0 +1,45 @@
+
+    <%= select_tag(:choice, options_for_select([['Today','Today'],['This Week','This Week'],['This Month','This Month']])) %>
+    <%= @when_choice %><%= @choice %>
+
+
+     <% idx=['Today', 'This Week', 'This Month'].index(@when_choice) %>
+      <%= f.select :when_choice, ['Today', 'This Week', 'This Month'] %>
+
+
+
+       <%= f.submit "index_choice"%>
+
+
+# no submit attempt #1
+   <%= bootstrap_form_for(:params) do |f| %>
+
+      <%= f.select :when_choice,
+        options_for_select([['Today','Today'],['This Week','This Week'],['This Month','This Month']], @when_choice),
+        { :onchange => "this.form.submit(index_choice);" },
+       { :class => 'span3 controls controls-row' }
+
+       %>
+    <% end %>
+
+
+
+another solution:  dropdown change submit
+
+    <% form_tag('switch_car', :method => :put, :remote => true) do %>
+<div class="field">
+    <label>Car Name:</label>
+    <%= select_tag(:id, options_from_collection_for_select(active_cars, "id", "name"),
+     :onchange => ("$('switch_car').submit()"))%><%= submit_tag "Switch Car" %>
+</div>
+
+<% end %>
+
+
+    <% form_tag('switch_car', :method => :put, :remote => true) do %>
+<div class="field">
+    <label>Car Name:</label>
+    <%= select_tag(:id, options_from_collection_for_select(active_cars, "id", "name"), :onchange => ("$('switch_car').submit()"))%><%= submit_tag "Switch Car" %>
+</div>
+
+<% end %>
