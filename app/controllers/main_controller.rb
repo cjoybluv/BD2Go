@@ -6,7 +6,7 @@ class MainController < ApplicationController
     if (session[:user_id])
 
       @customers = User.find(session[:user_id]).customers.order(name: :asc)
-      @who_choice = session[:who_choice]
+      @who_choice = session[:who_choice] || "Customer Search"
 
       if (@who_choice != '' && @who_choice != 'Customer Search')
         if (@who_choice.length == 1)

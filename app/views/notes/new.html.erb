@@ -1,0 +1,16 @@
+<h3>Create Note/Task/Appt for Customer: </h3>
+<h5><%= @customer.name %></h5>
+<p><%= @customer.address %></p>
+
+<div class="row">
+  <%= bootstrap_form_for([@customer,@note]) do |f| %>
+    <%= f.text_field :subject %>
+    <%= f.text_area :body %>
+    <%= f.primary %>
+
+
+  <% end %>
+</div>
+
+
+

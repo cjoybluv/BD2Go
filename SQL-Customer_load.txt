@@ -12,7 +12,8 @@ COPY notes
    updated_at, customer_id, user_id)
   FROM '/users/cjoybluv/code/BD2Go/documents/notes.csv' DELIMITER ',' CSV;
 SELECT setval('serial',max(id)) FROM notes;
-END
+END;
+
 
 
 from web- re SerialKey update:

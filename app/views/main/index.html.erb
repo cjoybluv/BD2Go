@@ -15,7 +15,7 @@
 
     <div class="calendar-block well">
       <% @notes.each do |note| %>
-        <div class="note-block">
+        <div id=<%= note.id %> class="note-block">
           <p class="note-due">
             <% due = note.due_date_time %>
             <% if (due.hour+due.min==0) %>
@@ -48,7 +48,7 @@
         <div class="customer-block">
           <p class="customer-name">
             <%= customer.name %>
-            <%= link_to '', customer_note_path(customer.id), :class=>'customer-add-note pull-right glyphicon glyphicon-pencil' %>
+            <%= link_to '', new_customer_note_path(customer.id), :class=>'customer-add-note pull-right glyphicon glyphicon-pencil' %>
             <a href="#"><span class="BD2Go-marker pull-right glyphicon glyphicon-map-marker"></span></a>
           </p>
           <p class="customer-address"><%= customer.address %></p>

@@ -70,7 +70,10 @@ $(function() {
 
   $('.BD2Go-marker').on('click', function(e) {
     // alert('marker clicked!');
-    console.log(e.toElement.parentElement.parentNode.innerText);
+    // noteId = e.toElement.parentElement.parentElement.parentElement.id;
+    // markerTitle = gon.customers.find(gon.notes.find(noteId).customer_id).name;
+    // console.log('noteId',noteId,'markerTitle',markerTitle);
+    // console.log(e.toElement.parentElement.parentNode.innerText);
     // console.log(markers[10]._geojson.properties.title,markers.length);
     // console.log(markers[10]._geojson.properties.title,markers.length;
     var targetTitle = e.toElement.parentElement.parentNode.innerText;

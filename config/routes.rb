@@ -1,19 +1,4 @@
 Rails.application.routes.draw do
-  get 'notes/index'
-
-  get 'customers/index'
-
-  get 'customers/show'
-
-  get 'customers/new'
-
-  get 'customers/create'
-
-  get 'customers/edit'
-
-  get 'customers/update'
-
-  get 'customers/destroy'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -23,7 +8,11 @@ Rails.application.routes.draw do
 
   post '/' => 'main#edit', as: 'index_choice'
 
-  get 'customers/:id/note' => 'customers#note', as: :customer_note
+  resources :customers do
+    resources :notes
+  end
+
+  # get 'customers/:id/note' => 'customers#note', as: :customer_note
 
 
   get 'login' => 'sessions#new'

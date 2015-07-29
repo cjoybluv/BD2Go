@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'bootstrap_form'
 gem 'gon'
 gem 'mapbox-rails'
+gem 'rails_12factor', group: :production
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.3'
