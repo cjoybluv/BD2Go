@@ -19,4 +19,11 @@ class CustomersController < ApplicationController
 
   def destroy
   end
+
+  def note
+    # render json: params
+    # render plain: params[:id]
+    @customer = Customer.find(params[:id])
+    @notes = @customer.notes
+  end
 end

@@ -46,7 +46,7 @@
     <div class="customer-block well">
       <% @customers.each do |customer| %>
         <div class="customer-block">
-          <p class="customer-name"><%= customer.name %><a href="#"><span class="pull-right glyphicon glyphicon-pencil"></span></a></p>
+          <p class="customer-name"><%= customer.name %><%= link_to '', customer_note_path(customer.id), :class=>'customer-add-note pull-right glyphicon glyphicon-pencil' %></p>
           <p class="customer-address"><%= customer.address %></p>
         </div>
         <% end %>

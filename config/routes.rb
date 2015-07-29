@@ -23,6 +23,9 @@ Rails.application.routes.draw do
 
   post '/' => 'main#edit', as: 'index_choice'
 
+  get 'customers/:id/note' => 'customers#note', as: :customer_note
+
+
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
 
