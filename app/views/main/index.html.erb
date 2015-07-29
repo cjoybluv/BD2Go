@@ -7,10 +7,9 @@
       <div class="input-append">
         <%= f.select :when_choice,
           options_for_select([['Today','Today'],['This Week','This Week'],['This Month','This Month']], @when_choice),
-         { :class => 'span3 controls controls-row' },
-         hide_label: true
+          hide_label: true
         %>
-        <%= f.submit "index_choice"%>
+        <%= f.submit "go!" %>
       </div>
    <% end %>
 
@@ -27,16 +26,17 @@
     <%= bootstrap_form_for(:params, layout: :inline, hide_label: true) do |f| %>
 
       <div class="input-append">
-        <%= f.text_field :who_choice, placeholder: "Customer Search" %>
-        <%= f.submit "index_choice"%>
+        <%= f.text_field :who_choice, placeholder: @who_choice, hide_label: true %>
+        <%= f.submit "go!"%>
       </div>
    <% end %>
-   <%= @who_choice %>
     <div class="customer-block well">
       <% @customers.each do |customer| %>
-        <p><%= customer.name %></p>
-        <p><em><small>&nbsp;&nbsp;&nbsp;&nbsp;<%= customer.address %></small></em></p>
-      <% end %>
+        <div class="row">
+          <p><%= customer.name %><a href="#"><span class="pull-right glyphicon glyphicon-pencil"></span></a></p>
+          <p><em><small>&nbsp;&nbsp;&nbsp;&nbsp;<%= customer.address %></small></em></p>
+        </div>
+        <% end %>
     </div>
   </div>
   <div class="col-sm-4 col-md-4 col-lg-4">

@@ -8,11 +8,11 @@ class MainController < ApplicationController
       @customers = User.find(session[:user_id]).customers
       @who_choice = session[:who_choice]
 
-      if (@who_choice != '')
+      if (@who_choice != '' && @who_choice != 'Customer Search')
         if (@who_choice.length == 1)
-          @customers = @customers.find_by_sql("SELECT * FROM customers WHERE name like '"+@who_choice+"%'")
+          @customers = @customers.find_by_sql("SELECT * FROM customers WHERE name ilike '"+@who_choice+"%'")
         else
-          @customers = @customers.find_by_sql("SELECT * FROM customers WHERE CONCAT(name,address,contact,email) like '%"+@who_choice+"%'");
+          @customers = @customers.find_by_sql("SELECT * FROM customers WHERE CONCAT(name,address,contact,email) ilike '%"+@who_choice+"%'");
         end
       end
 

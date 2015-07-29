@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
   end
 
   def who_choice
-    @who_choice ||= session[:who_choice]
+    @who_choice ||= session[:who_choice] || "Customer Search"
   end
 
 end

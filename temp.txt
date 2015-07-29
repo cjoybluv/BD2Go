@@ -21,6 +21,7 @@
 
        %>
     <% end %>
+         { :class => 'span3 controls controls-row' },
 
 
 
