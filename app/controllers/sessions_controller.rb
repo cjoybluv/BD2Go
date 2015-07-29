@@ -29,6 +29,8 @@ class SessionsController < ApplicationController
   def destroy
     # render plain: "destroy session"
     session[:user_id] = nil
+    session[:when_choice] = nil
+    session[:who_choice] = nil
     # flash[:info] = "You are loggged out."
     redirect_to login_path
   end

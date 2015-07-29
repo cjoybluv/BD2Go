@@ -15,9 +15,7 @@ puts time.wday
         month_ends = [31,28,31,30,31,30,31,31,30,31,30,31]
 
 # puts month_ends
-
-        end_day = month_ends[time.month-1]
-
+z
 puts 'end_day'
 puts end_day
 

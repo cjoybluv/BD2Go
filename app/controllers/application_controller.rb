@@ -21,4 +21,8 @@ class ApplicationController < ActionController::Base
     @when_choice ||= session[:when_choice] || "Today"
   end
 
+  def who_choice
+    @who_choice ||= session[:who_choice]
+  end
+
 end

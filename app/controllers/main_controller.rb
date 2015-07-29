@@ -4,7 +4,17 @@ class MainController < ApplicationController
     @customers = []
     @notes = []
     if (session[:user_id])
+
       @customers = User.find(session[:user_id]).customers
+      @who_choice = session[:who_choice]
+
+      if (@who_choice != '')
+        if (@who_choice.length == 1)
+          @customers = @customers.find_by_sql("SELECT * FROM customers WHERE name like '"+@who_choice+"%'")
+        else
+          @customers = @customers.find_by_sql("SELECT * FROM customers WHERE CONCAT(name,address,contact,email) like '%"+@who_choice+"%'");
+        end
+      end
 
       time = Time.new
       case @when_choice
@@ -35,9 +45,11 @@ class MainController < ApplicationController
   end
 
   def edit
+    # render json: params
     # render json: params[:params][:when_choice]
     # @when_choice = params[:params][:when_choice]
-    session[:when_choice] = params[:params][:when_choice]
+    session[:when_choice] = params[:params][:when_choice] || session[:when_choice]
+    session[:who_choice] = params[:params][:who_choice] || session[:who_choice]
     # render plain: @when_choice
     redirect_to root_path
   end
