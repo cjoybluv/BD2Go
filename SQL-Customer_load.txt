@@ -5,9 +5,18 @@ COPY customers
     acct_status, acct_type, created_at, updated_at, user_id, address, lnglat)
   FROM '/users/cjoybluv/code/BD2Go/documents/customers.csv' DELIMITER ',' CSV;
 
-
+BEGIN;
 DELETE FROM notes;
 COPY notes
   (id, subject, body, due_date_time, completed, created_at,
    updated_at, customer_id, user_id)
   FROM '/users/cjoybluv/code/BD2Go/documents/notes.csv' DELIMITER ',' CSV;
+SELECT setval('serial',max(id)) FROM notes;
+END
+
+
+from web- re SerialKey update:
+| BEGIN;
+| COPY distributors FROM 'input_file';
+| SELECT setval('serial', max(id)) FROM distributors;
+| END;

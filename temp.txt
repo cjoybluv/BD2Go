@@ -64,6 +64,13 @@ customer_note_path:
   <%= f.primary %>
   <% end %>
 
+INDEX:  MARKER GO!
+
+on.click of .BD2Go-marker
+innerText of parentNode of parentElement of toElement of e
+e.toElement.parentElement.parentNode.innerText = {customer.name}
+
+markers[i]._geojson.properties.title
 
 
 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod

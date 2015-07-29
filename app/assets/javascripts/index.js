@@ -14,17 +14,11 @@ $(function() {
 
   console.log('on load', gon.customers);
 
-  // lat.lng  47.600 - 47.700
+  // lat.lng  47.600 - 47.700     SEATTLE ZONE
   //          -122.300 - -122.400
 
-  // var markers = [];
-  // var locations = [
-  //   [-122.32421142292, 47.617371603574],
-  //   [-122.33421142292, 47.619371603574],
-  //   [-122.31431142292, 47.618471603574],
-  //   [-122.34411142292, 47.616271603574],
-  // ];
 
+  // LOAD MARKERS
   for (var c=0;c<gon.customers.length;c++) {
 
     var lngLat = [gon.customers[c].lnglat.split(',')[0],gon.customers[c].lnglat.split(',')[1]];
@@ -74,7 +68,19 @@ $(function() {
     }
   });
 
-
+  $('.BD2Go-marker').on('click', function(e) {
+    // alert('marker clicked!');
+    console.log(e.toElement.parentElement.parentNode.innerText);
+    // console.log(markers[10]._geojson.properties.title,markers.length);
+    // console.log(markers[10]._geojson.properties.title,markers.length;
+    var targetTitle = e.toElement.parentElement.parentNode.innerText;
+    for (var m=0;m<markers.length;m++) {
+      if (markers[m]._geojson.properties.title==targetTitle) {
+        console.log("Target Found for: "+targetTitle);
+        markers[m].openPopup();
+      }
+    }
+  });
 
 
 
