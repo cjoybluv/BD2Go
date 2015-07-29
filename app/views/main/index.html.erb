@@ -15,10 +15,19 @@
 
     <div class="calendar-block well">
       <% @notes.each do |note| %>
-        <h5><%= note.due_date_time %></h5>
-        <p>&nbsp;&nbsp;<%= note.subject %></p>
-        <p><em><small>&nbsp;&nbsp;&nbsp;&nbsp;<%= note.body %></small></em></p>
-      <% end %>
+        <div class="note-block">
+          <p class="note-due">
+            <% due = note.due_date_time %>
+            <% if (due.hour+due.min==0) %>
+              Task Due: <%= due.strftime("%m-%d-%Y") %>
+            <% else %>
+              Appt: <%= due.strftime("%H:%M - %m-%d-%Y") %>
+            <% end %>
+          </p class="note-due">
+          <p class="note-subject"><%= note.subject %></p>
+          <p class="note-body"><%= note.body %></p>
+        </div>
+        <% end %>
     </div>
   </div>
   <div class="col-sm-4 col-md-4 col-lg-4">
@@ -32,9 +41,9 @@
    <% end %>
     <div class="customer-block well">
       <% @customers.each do |customer| %>
-        <div class="row">
-          <p><%= customer.name %><a href="#"><span class="pull-right glyphicon glyphicon-pencil"></span></a></p>
-          <p><em><small>&nbsp;&nbsp;&nbsp;&nbsp;<%= customer.address %></small></em></p>
+        <div class="customer-block">
+          <p class="customer-name"><%= customer.name %><a href="#"><span class="pull-right glyphicon glyphicon-pencil"></span></a></p>
+          <p class="customer-address"><%= customer.address %></p>
         </div>
         <% end %>
     </div>
