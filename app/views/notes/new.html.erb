@@ -7,7 +7,7 @@
     <%= f.text_field :subject %>
     <%= f.text_area :body %>
     <% @note.due_date_time = Time.new-(7*60*60) %>
-      <%= f.datetime_local_field :due_date_time input_html: { class: 'span6' } %>
+      <%= f.datetime_local_field :due_date_time %>
     <div class="col-md-offset-3 col-md-3">
       <%= f.check_box :completed %>
     </div>
