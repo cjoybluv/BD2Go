@@ -20,7 +20,7 @@
             <% due = note.due_date_time %>
             <% if (due.hour+due.min==0) %>
               Task Due: <%= due.strftime("%m-%d-%Y") %>
-              <a href="#"><span data-noteid="<%= note.id %>" class="completed-button pull-right glyphicon glyphicon-check"></span></a>
+              <%= link_to '', complete_task_path(note), :method=> :patch, :class=>'completed-button pull-right glyphicon glyphicon-check' %>
             <% else %>
               Appt: <%= due.strftime("%H:%M - %m-%d-%Y") %>
             <% end %>

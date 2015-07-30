@@ -12,6 +12,8 @@ Rails.application.routes.draw do
     resources :notes
   end
 
+  patch 'notes/:id/complete' => 'notes#complete', as: :complete_task
+
   # get 'customers/:id/note' => 'customers#note', as: :customer_note
 
 

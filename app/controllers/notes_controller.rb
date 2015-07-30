@@ -34,6 +34,10 @@ class NotesController < ApplicationController
 
 
   def complete
-    render json: params
+    # render json: params
+    n = Note.find(params[:id])
+    n.completed = true
+    n.save
+    redirect_to root_path
   end
 end
