@@ -1,6 +1,7 @@
 class MainController < ApplicationController
 
   def index
+    @users = User.all
     @customers = []
     @notes = []
     if (session[:user_id])
@@ -42,6 +43,7 @@ class MainController < ApplicationController
     end
     gon.customers = @customers
     gon.notes = @notes
+    gon.joke_doc = ''
   end
 
   def edit

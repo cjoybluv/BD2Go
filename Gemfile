@@ -8,6 +8,10 @@ gem 'rails_12factor', group: :production
 gem 'momentjs-rails', '~> 2.10.3'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.15.35'
 
+gem 'nokogiri'
+
+gem 'rest-client'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.3'
 # Use postgresql as the database for Active Record

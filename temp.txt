@@ -1,4 +1,10 @@
 
+JOKE SCRAPE:
+www.laughfactor.com/jokes/joke-of-the-day
+$('.joke-area>.line:first .joke3-pop-box p').text();
+document.querySelector('.joke-area').querySelector('.line').querySelector('.joke3-pop-box').querySelector('p').innerHTML
+
+
 When: Marker: set date-title
 data-title="<%= @customers.find(note.customer_id).name %>"
          var foo = $("div").data("randomdata");

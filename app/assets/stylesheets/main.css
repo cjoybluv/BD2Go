@@ -1,3 +1,8 @@
+.index-block {
+  min-height: 400px;
+  max-height: 400px;
+  overflow-y: scroll;
+}
 .well .glyphicon {
   padding-left: 10px;
 }
@@ -30,4 +35,7 @@
   padding-right: 5px;
   font-style: italic;
   font-size: 12px;
+}
+#mapButton {
+  margin: 5px;
 }

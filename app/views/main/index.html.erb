@@ -13,7 +13,7 @@
       </div>
     <% end %>
 
-    <div class="calendar-block well">
+    <div class="calendar-block index-block well">
       <% @notes.each do |note| %>
         <div id=<%= note.id %> class="note-block">
           <p class="note-due">
@@ -43,7 +43,7 @@
         <%= f.submit "go!"%>
       </div>
    <% end %>
-    <div class="customer-block well">
+    <div class="customer-block index-block well">
       <% @customers.each do |customer| %>
         <div class="customer-block">
           <p class="customer-name">
@@ -62,3 +62,33 @@
     <div id="map" style="height:400px;background-color:blue;"></div>
   </div>
 </div>
+
+<div class="row">
+  <div id="horoscope" class="well">
+    <% search_sign =  @current_user.astro_sign %>
+    <% search_period = @when_choice %>
+    <% case search_period %>
+    <% when 'Today' %>
+    <%   arg_path = 'daily/' %>
+    <% when 'This Week' %>
+    <%   arg_path = 'weekly-overview/' %>
+    <% when 'This Month' %>
+    <%   arg_path = 'monthly-overview/' %>
+    <% end %>
+    <% url = "http://www.astrology.com/horoscope/" %>
+    <% search_url = url+arg_path+search_sign + ".html" %>
+    <% response = RestClient.get(search_url) %>
+    <% html = response.body %>
+    <% #html = open('/astro_test.html') %>
+    <% document = Nokogiri::HTML(html) %>
+    <% horoscope = document.css('.page-horoscope-text') %>
+    <% if horoscope.empty? %>
+    <%=   "no horoscope found for #{search_sign} #{search_period}." %>
+    <% else %>
+    <strong><%=   search_period+' - '+search_sign.capitalize+' - ' %></strong>
+    <%=   horoscope.text %>
+    <% end %>
+  </div>
+</div>
+
+
