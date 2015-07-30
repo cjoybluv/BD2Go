@@ -31,4 +31,9 @@ class NotesController < ApplicationController
 
   def destroy
   end
+
+
+  def complete
+    render json: params
+  end
 end

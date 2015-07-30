@@ -67,8 +67,31 @@ $(function() {
     }
   });
 
+
   $('.BD2Go-marker').on('click', function(e) {
-    var targetTitle = e.toElement.parentElement.parentNode.innerText;
+    var noteId = e.currentTarget.dataset.noteid;
+    var targetTitle = '';
+    if (typeof noteId !== 'undefined') {
+      console.log(gon.notes);
+      var note = gon.notes.filter(function (note) {
+        if (note.id == noteId) {
+          return true;
+        } else {
+          return false;
+        }
+      });
+      var customerId = note[0].customer_id;
+      var customer = gon.customers.filter(function (customer) {
+        if (customer.id == customerId) {
+          return true;
+        } else {
+          return false;
+        }
+      });
+      targetTitle = customer[0].name;
+    } else {
+      var targetTitle = e.toElement.dataset.title;
+    }
     for (var m=0;m<markers.length;m++) {
       if (markers[m]._geojson.properties.title==targetTitle) {
         map.panTo([markers[m]._geojson.geometry.coordinates[1],markers[m]._geojson.geometry.coordinates[0]]);
@@ -77,6 +100,10 @@ $(function() {
     }
   });
 
+  $('.completed-button').on('click', function(e) {
+    var noteId = e.currentTarget.dataset.id;
+    console.log('completed button clicked',notedId);
+  });
 
 
 });

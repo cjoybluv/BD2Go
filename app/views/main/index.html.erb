@@ -20,12 +20,12 @@
             <% due = note.due_date_time %>
             <% if (due.hour+due.min==0) %>
               Task Due: <%= due.strftime("%m-%d-%Y") %>
-              <a href="#"><span class="pull-right glyphicon glyphicon-check"></span></a>
+              <a href="#"><span data-noteid="<%= note.id %>" class="completed-button pull-right glyphicon glyphicon-check"></span></a>
             <% else %>
               Appt: <%= due.strftime("%H:%M - %m-%d-%Y") %>
             <% end %>
-            <% if (note.customer_id != '') %>
-              <a href="#"><span class="BD2Go-marker pull-right glyphicon glyphicon-map-marker"></span></a>
+            <% if (note.customer_id != nil && note.customer_id != '') %>
+              <a href="#"><span data-noteid="<%= note.id %>" class="BD2Go-marker pull-right glyphicon glyphicon-map-marker"></span></a>
             <% end %>
           </p>
           <p class="note-subject"><%= note.subject %></p>
@@ -49,7 +49,7 @@
           <p class="customer-name">
             <%= customer.name %>
             <%= link_to '', new_customer_note_path(customer.id), :class=>'customer-add-note pull-right glyphicon glyphicon-pencil' %>
-            <a href="#"><span data-title="<%= customer.name %>" class="BD2Go-marker pull-right glyphicon glyphicon-map-marker"></span></a>
+            <a href="#"><span  data-title="<%= customer.name %>" class="BD2Go-marker pull-right glyphicon glyphicon-map-marker"></span></a>
           </p>
           <p class="customer-address"><%= customer.address %></p>
         </div>
