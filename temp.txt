@@ -22,7 +22,7 @@ ipadOpt 3.2
 }
 
 
-
+(NOT completed OR completed = NULL) AND
 
 
 datapicker example:

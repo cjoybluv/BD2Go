@@ -35,7 +35,7 @@ class MainController < ApplicationController
       end
 
       @notes = User.find(session[:user_id]).notes
-       .where("due_date_time >= :start_date AND due_date_time < :end_date",
+       .where("(completed IS NULL OR NOT completed) AND due_date_time >= :start_date AND due_date_time < :end_date",
                {start_date: start_date, end_date: end_date})
        .order("due_date_time ASC")
 
