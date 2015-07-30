@@ -143,3 +143,48 @@ quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
 consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
 cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
 proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+
+
+
+<li class="dropdown">
+  <a aria-expanded="false" class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" title="Host a Class">Host a Class <span aria-hidden="true" class="caret"></span></a>
+  <ul class="weblinks-depth-2 dropdown-menu" data-weblinks-depth="2" role="menu">
+    <li><a href="#" title="Host a Class">Host a Class</a><div class="description"></div></li>
+    <li class="divider"></li>
+    <li><a href="/associations/" title="Professional Association">Professional Association</a></li>
+    <li><a href="/in-house-training/" title="In-House Training">In-House Training</a></li>
+  </ul>
+</li>
+
+
+
+
+
+navbar login
+
+
+  <div class="hdr-login navbar navbar-right">
+    <ul class="nav navbar-nav">
+      <li class="dropdown">
+        <% if @current_user %>
+          <a aria-expanded="false" class="dropdown-toggle" data-toggle="dropdown" href="#" role="button"><%= @current_user.name %> <span aria-hidden="true" class="caret"></span></a>
+        <% else %>
+            <li><%= link_to "Login", login_path %></li>
+        <% end %>
+
+        <ul class="weblinks-depth-1 dropdown-menu" data-weblinks-depth="1" role="menu">
+          <% if @current_user %>
+              <li><a aria-expanded="false" class="dropdown-toggle" data-toggle="dropdown" href="#" role="button"><%= @current_user.name %> <span aria-hidden="true" class="caret"></span></a></li>
+              <li><%= link_to "Logout", logout_path %></li>
+          <% else %>
+              <li><%= link_to "Login", login_path %></li>
+              <li><%= link_to "Signup", signup_path %></li>
+          <% end %>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+
+
