@@ -54,10 +54,6 @@ $(function() {
 
   map.on('popupopen',function(centerMarker) {
       map.panTo([centerMarker.popup._latlng.lat,centerMarker.popup._latlng.lng]);
-
-      console.log('popupopen',centerMarker.popup._latlng);
-      console.log('lat:',centerMarker.popup._latlng.lat);
-      console.log('lng:',centerMarker.popup._latlng.lng);
   });
 
 
@@ -69,17 +65,10 @@ $(function() {
   });
 
   $('.BD2Go-marker').on('click', function(e) {
-    // alert('marker clicked!');
-    // noteId = e.toElement.parentElement.parentElement.parentElement.id;
-    // markerTitle = gon.customers.find(gon.notes.find(noteId).customer_id).name;
-    // console.log('noteId',noteId,'markerTitle',markerTitle);
-    // console.log(e.toElement.parentElement.parentNode.innerText);
-    // console.log(markers[10]._geojson.properties.title,markers.length);
-    // console.log(markers[10]._geojson.properties.title,markers.length;
     var targetTitle = e.toElement.parentElement.parentNode.innerText;
     for (var m=0;m<markers.length;m++) {
       if (markers[m]._geojson.properties.title==targetTitle) {
-        console.log("Target Found for: "+targetTitle);
+        map.panTo([markers[m]._geojson.geometry.coordinates[1],markers[m]._geojson.geometry.coordinates[0]]);
         markers[m].openPopup();
       }
     }

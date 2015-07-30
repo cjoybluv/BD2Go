@@ -1,11 +1,12 @@
-<h3>Create Note/Task/Appt for Customer: </h3>
+<h4>Create Note/Task/Appt for Customer: </h4>
 <h5><%= @customer.name %></h5>
 <p><%= @customer.address %></p>
-
+<p><%= @customer.contact %>&nbsp;&nbsp;&nbsp;<%= @customer.email %>&nbsp;&nbsp;&nbsp;<%= @customer.phone %></p>
 <div class="row">
-  <%= bootstrap_form_for([@customer,@note]) do |f| %>
+  <%= bootstrap_form_for([@customer,@note], layout: :horizontal,) do |f| %>
     <%= f.text_field :subject %>
     <%= f.text_area :body %>
+    <%= f.text_field :due_date_time, :class => 'datepicker' %>
     <%= f.primary %>
 
 
