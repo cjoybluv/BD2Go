@@ -10,6 +10,8 @@ input control => class set
   <%= f.input :description, input_html: { class: 'span12' } %>
 
 
+default calc for cust.note.new due-date
+<% @note.due_date_time = (Time.new-(7*60*60)) %>
 
 
 

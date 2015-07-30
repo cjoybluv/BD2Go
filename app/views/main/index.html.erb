@@ -1,6 +1,6 @@
 
 <div class="row">
-  <div class="col-sm-4 col-md-4 col-lg-4">
+  <div class="col-md-4 col-lg-4">
     <h4>When &amp; What</h4>
     <%= bootstrap_form_for(:params, layout: :inline, hide_label: true) do |f| %>
 
@@ -11,7 +11,7 @@
         %>
         <%= f.submit "go!" %>
       </div>
-   <% end %>
+    <% end %>
 
     <div class="calendar-block well">
       <% @notes.each do |note| %>
@@ -34,7 +34,7 @@
         <% end %>
     </div>
   </div>
-  <div class="col-sm-4 col-md-4 col-lg-4">
+  <div class="col-md-4 col-lg-4">
     <h4>Who</h4>
     <%= bootstrap_form_for(:params, layout: :inline, hide_label: true) do |f| %>
 
@@ -56,10 +56,9 @@
         <% end %>
     </div>
   </div>
-  <div class="col-sm-4 col-md-4 col-lg-4">
-  <h4>Where</h4>
+  <div class="col-md-4 col-lg-4">
+    <h4>Where</h4>
+    <div class='row'><span class="pull-right"><button id="mapButton">Clear Markers</button></span></div>
     <div id="map" style="height:400px;background-color:blue;"></div>
-
-    <button id="mapButton">Clear Markers</button>
   </div>
 </div>
