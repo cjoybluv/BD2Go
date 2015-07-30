@@ -1,5 +1,8 @@
 $(function() {
 
+  // var mapPresent = document.querySelector('#map') ? true : false;
+  // console.log('map?',mapPresent);
+  // window.location.reload();
 
 
   L.mapbox.accessToken = 'pk.eyJ1IjoiY2pveWJsdXYiLCJhIjoiNzQ3MWQzMjNiOGI2ZDQzOTJhNGFlY2YyMzZiMjg5NDIifQ.A6YxoDaBVo73wIutjHFrQg';
