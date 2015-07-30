@@ -39,7 +39,7 @@
     <%= bootstrap_form_for(:params, layout: :inline, hide_label: true) do |f| %>
 
       <div class="input-append">
-        <%= f.text_field :who_choice, placeholder: @who_choice, hide_label: true %>
+        <%= f.text_field :who_choice, placeholder: @who_choice, hide_label: true, :class => 'input-medium' %>
         <%= f.submit "go!"%>
       </div>
    <% end %>
@@ -49,7 +49,7 @@
           <p class="customer-name">
             <%= customer.name %>
             <%= link_to '', new_customer_note_path(customer.id), :class=>'customer-add-note pull-right glyphicon glyphicon-pencil' %>
-            <a href="#"><span class="BD2Go-marker pull-right glyphicon glyphicon-map-marker"></span></a>
+            <a href="#"><span data-title="<%= customer.name %>" class="BD2Go-marker pull-right glyphicon glyphicon-map-marker"></span></a>
           </p>
           <p class="customer-address"><%= customer.address %></p>
         </div>

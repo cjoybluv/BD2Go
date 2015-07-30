@@ -1,3 +1,18 @@
+
+When: Marker: set date-title
+data-title="<%= @customers.find(note.customer_id).name %>"
+         var foo = $("div").data("randomdata");
+      or
+          var foo = $('div').attr('data-randomdata');
+
+
+input control => class set
+  <%= f.input :description, input_html: { class: 'span12' } %>
+
+
+
+
+
 datapicker example:
 
 
