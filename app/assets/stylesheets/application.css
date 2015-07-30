@@ -16,8 +16,7 @@
  *= require bootstrap-datetimepicker
 */
 .container {
-  max-width: 1024px;
-  min-width: 480px;
+  width: 978px;
 }
 @media (max-width: 1024px) {
     .container {
