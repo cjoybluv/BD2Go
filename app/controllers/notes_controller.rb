@@ -13,8 +13,10 @@ class NotesController < ApplicationController
   end
 
   def create
-    # render plain: params[:note][:subject]
+    # render json: params
     n = Note.new(subject: params[:note][:subject], body: params[:note][:body])
+    n.due_date_time = params[:note][:due_date_time]
+    n.completed = params[:note][:completed]
     n.customer_id = params[:customer_id]
     n.user_id = session[:user_id]
     n.save
