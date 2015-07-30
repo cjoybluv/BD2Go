@@ -15,7 +15,9 @@
  *= require rails_bootstrap_forms
  *= require bootstrap-datetimepicker
 */
-
+.container {
+  width: 1024px;
+}
 .well {
   min-height: 400px;
   max-height: 400px;
@@ -23,7 +25,6 @@
 }
 @media (max-width: 1024px) {
     .container {
-      padding:0;
-      margin:5px;
+      margin: 5px 5px 5px 5px;
     }
 }
