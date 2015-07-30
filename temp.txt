@@ -24,6 +24,7 @@ ipadOpt 3.2
 
 (NOT completed OR completed = NULL) AND
 
+      <a href="<%= root_path %>"><h1><em>BD 2 Go</em></h1></a>
 
 datapicker example:
 
