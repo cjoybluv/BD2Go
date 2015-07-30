@@ -1,17 +1,23 @@
 
 
-<div class="col-md-offset-3">
-  <h4>Create Note/Task/Appt for Customer: </h4>
-  <h5><%= @customer.name %></h5>
-  <p><%= @customer.address %></p>
-  <p><%= @customer.contact %>&nbsp;&nbsp;&nbsp;<%= @customer.email %>&nbsp;&nbsp;&nbsp;<%= @customer.phone %></p>
-</div>
+
 <div class="row">
+  <div class="col-sm-offset-3 col-sm-6">
+    <h4>Create Note/Task/Appt for Customer: </h4>
+    <h5><%= @customer.name %></h5>
+    <p><%= @customer.address %></p>
+    <p><%= @customer.contact %>&nbsp;&nbsp;&nbsp;<%= @customer.email %>&nbsp;&nbsp;&nbsp;<%= @customer.phone %></p>
+  </div>
+</div>
+
+<div class="row note-form">
+
   <%= bootstrap_form_for([@customer,@note], layout: :horizontal,) do |f| %>
-    <%= f.text_field :subject %>
-    <%= f.text_area :body %>
-    <%= f.datetime_local_field :due_date_time, :class => 'input-medium' %>
-    <div class="col-md-offset-3 col-md-3">
+
+    <%= f.text_field :subject, :class => 'input-small' %>
+    <%= f.text_area :body, :class => 'input-small' %>
+    <%= f.datetime_local_field :due_date_time, :class => 'input-small' %>
+    <div class="col-sm-offset-3 col-sm-3">
       <%= f.check_box :completed %>
     </div>
     <div class="pull-right">
