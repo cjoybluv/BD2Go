@@ -1,6 +1,10 @@
 
 $(function() {
 
+  $('#who_choice').on('focus', function(e) {
+    $('#who_choice').attr("placeholder","Customer Search");
+  });
+
   var mapDiv = $('#map');
   if (typeof mapDiv !== 'undefined') {
 

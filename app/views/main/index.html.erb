@@ -39,7 +39,7 @@
     <%= bootstrap_form_for(:params, layout: :inline, hide_label: true) do |f| %>
 
       <div class="input-append">
-        <%= f.text_field :who_choice, placeholder: @who_choice, hide_label: true, :class => 'input-medium' %>
+        <%= f.text_field :who_choice, id: "who_choice", placeholder: @who_choice, hide_label: true, :class => 'input-medium' %>
         <%= f.submit "go!"%>
       </div>
    <% end %>
