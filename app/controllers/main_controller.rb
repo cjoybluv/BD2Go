@@ -41,6 +41,7 @@ class MainController < ApplicationController
 
     end
     gon.customers = @customers
+    gon.customersAll = Customer.all
     gon.notes = @notes
     gon.joke_doc = ''
   end
