@@ -8,6 +8,8 @@ Rails.application.routes.draw do
 
   post '/' => 'main#edit', as: 'index_choice'
 
+  resources :notes
+
   resources :customers do
     resources :notes
   end

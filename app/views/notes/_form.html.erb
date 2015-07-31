@@ -1,0 +1,108 @@
+
+
+
+<div class="row">
+  <div class="col-sm-5">
+    <h5><%= @customer.name %></h5>
+    <p><%= @customer.address %></p>
+  </div>
+  <div class="col-sm-7">
+    <p><%= @customer.contact %><br />
+      <%= @customer.email %><br />
+      <%= number_to_phone(@customer.phone, area_code: true) %>
+    </p>
+  </div>
+</div>
+
+<div class="row col-sm-offset-4">
+    <div class="btn-group btn-group-justified" role="group">
+      <a href="#" id="note-note"><button id="noteBtn" class="btn-primary">Record Note</button></a>
+      <a href="#" id="note-task"><button id="taskBtn">Create Task</button></a>
+      <a href="#" id="note-appt"><button id="apptBtn">Make Appt</button></a>
+    </div>
+    <p></p>
+</div>
+
+<div class="row note-form">
+
+
+  <%= bootstrap_form_for([@customer,@note], layout: :horizontal,) do |f| %>
+
+    <div class="row">
+      <div class="col-sm-7">
+        <%= f.text_field :subject, :class => 'input-small' %>
+        <%= f.text_area :body, :class => 'input-small' %>
+      </div>
+      <div id="bd2go-task" class="col-sm-5 hidden">
+        <%= f.date_select :due_date_time, :label => 'Due Date', :class => 'input-small' %>
+        <span class="text-center"><%= f.check_box :completed, :label => 'Completed?', :value => 0 %></span>
+      </div>
+      <div id="bd2go-appt" class="col-sm-5 hidden">
+        <%= f.datetime_local_field :due_date_time, :label => 'Appt Date & Time', :class => 'input-large' %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="pull-right">
+        <%= f.primary 'Save' %>
+      </div>
+    </div>
+
+
+  <% end %>
+</div>
+
+<script type="text/javascript">
+
+  var call = document.querySelector('#content h3').innerHTML;
+  if (call==='edit') {
+    console.log(gon.note_type);
+    switch (gon.note_type) {
+      case 'note':
+        $('#bd2go-task').addClass('hidden');
+        $('#bd2go-appt').addClass('hidden');
+        $('#noteBtn').addClass('btn-primary')
+        $('#taskBtn').removeClass('btn-primary')
+        $('#apptBtn').removeClass('btn-primary')
+        break;
+      case 'task':
+        $('#bd2go-task').removeClass('hidden');
+        $('#bd2go-appt').addClass('hidden');
+        $('#noteBtn').removeClass('btn-primary')
+        $('#taskBtn').addClass('btn-primary')
+        $('#apptBtn').removeClass('btn-primary')
+        break;
+      case 'appt':
+        $('#bd2go-task').addClass('hidden');
+        $('#bd2go-appt').removeClass('hidden');
+        $('#noteBtn').removeClass('btn-primary')
+        $('#taskBtn').removeClass('btn-primary')
+        $('#apptBtn').addClass('btn-primary')
+        break;
+    }
+  }
+
+  $('#note-note').on('click',function(e) {
+    $('#bd2go-task').addClass('hidden');
+    $('#bd2go-appt').addClass('hidden');
+    $('#noteBtn').addClass('btn-primary')
+    $('#taskBtn').removeClass('btn-primary')
+    $('#apptBtn').removeClass('btn-primary')
+  });
+
+  $('#note-task').on('click',function(e) {
+    $('#bd2go-task').removeClass('hidden');
+    $('#bd2go-appt').addClass('hidden');
+    $('#noteBtn').removeClass('btn-primary')
+    $('#taskBtn').addClass('btn-primary')
+    $('#apptBtn').removeClass('btn-primary')
+  });
+
+  $('#note-appt').on('click',function(e) {
+    $('#bd2go-task').addClass('hidden');
+    $('#bd2go-appt').removeClass('hidden');
+    $('#noteBtn').removeClass('btn-primary')
+    $('#taskBtn').removeClass('btn-primary')
+    $('#apptBtn').addClass('btn-primary')
+  });
+</script>

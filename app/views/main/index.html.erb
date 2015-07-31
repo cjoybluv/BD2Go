@@ -22,10 +22,10 @@
               <a href="#"><span data-noteid="<%= note.id %>" class="BD2Go-marker pull-right glyphicon glyphicon-map-marker"></span></a>
             <% end %>
             <% if (due.hour+due.min==0) %>
-              Task Due: <%= due.strftime("%m-%d-%Y") %>
+              Task Due: <%= link_to due.strftime("%m-%d-%Y"), edit_note_path(note), :method => :get %>
               <%= link_to '', complete_task_path(note), :method=> :patch, :class=>'completed-button pull-right glyphicon glyphicon-check' %>
             <% else %>
-              Appt: <%= due.strftime("%H:%M - %m-%d-%Y") %>
+              Appt: <%= link_to due.strftime("%H:%M - %m-%d-%Y"), edit_note_path(note), :method => :get %>
             <% end %>
           </p>
           <p class="note-subject"><%= note.subject %></p>

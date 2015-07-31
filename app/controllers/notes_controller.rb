@@ -33,9 +33,33 @@ class NotesController < ApplicationController
   end
 
   def edit
+    # render json: params
+    @customer = Customer.find(Note.find(params[:id]).customer_id)
+    @note = Note.find(params[:id])
+    if (@note.due_date_time != '')
+      if (@note.due_date_time.hour==0 && @note.due_date_time.min==0)
+        gon.note_type = 'task'
+      else
+        gon.note_type = 'appt'
+      end
+    else
+      gon.note_type = 'note'
+    end
   end
 
   def update
+    # render json: params[:note]
+    note = params[:note]
+    n = Note.find params[:id]
+    n.subject = note[:subject]
+    n.body = note[:body]
+    n.completed = note[:completed]
+    n.due_date_time = note[:due_date_time]
+    if (n.due_date_time.hour == 0 && n.due_date_time.min == 0)
+      n.due_date_time = Time.new(note['due_date_time(1i)'].to_i,note['due_date_time(2i)'].to_i,note['due_date_time(3i)'].to_i,0,0,0)-(7*60*60)
+    end
+    n.save
+    redirect_to root_path
   end
 
   def destroy
@@ -49,4 +73,12 @@ class NotesController < ApplicationController
     n.save
     redirect_to root_path
   end
+
+  private
+
+  def note_params
+    # params[:note].require(:subject).permit(:body, :customer_id, :due_date_time, :completed, :user_id)
+  end
+
 end
+
