@@ -52,6 +52,42 @@
   <% end %>
 </div>
 
+<div class="row">
+
+  <h4>Customer Note/Task/Appt History</h4>
+
+
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th class="col-sm-3">Subject</th>
+          <th class="col-sm-6">Body</th>
+          <th class="col-sm-3">Due Date/Time</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @customer.notes.length.times do |n| %>
+          <% note = @customer.notes[n] %>
+          <tr>
+            <td class="col-sm-3">
+              <%= note.subject %>
+            </td>
+            <td class="col-sm-6">
+              <%= note.body %>
+            </td>
+            <td class="col-sm-3">
+              <% if (note.due_date_time != nil) %>
+                <%= note.due_date_time.strftime("%m-%d-%Y - %H:%M") %>
+              <% else %>
+                &nbsp;
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+</div>
+
 <script type="text/javascript">
 
   var call = document.querySelector('#content h3').innerHTML;
