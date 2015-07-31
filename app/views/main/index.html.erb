@@ -65,28 +65,30 @@
 
 <div class="row">
   <div id="horoscope" class="well">
-    <% search_sign =  @current_user.astro_sign %>
-    <% search_period = @when_choice %>
-    <% case search_period %>
-    <% when 'Today' %>
-    <%   arg_path = 'daily/' %>
-    <% when 'This Week' %>
-    <%   arg_path = 'weekly-overview/' %>
-    <% when 'This Month' %>
-    <%   arg_path = 'monthly-overview/' %>
-    <% end %>
-    <% url = "http://www.astrology.com/horoscope/" %>
-    <% search_url = url+arg_path+search_sign + ".html" %>
-    <% response = RestClient.get(search_url) %>
-    <% html = response.body %>
-    <% #html = open('/astro_test.html') %>
-    <% document = Nokogiri::HTML(html) %>
-    <% horoscope = document.css('.page-horoscope-text') %>
-    <% if horoscope.empty? %>
-    <%=   "no horoscope found for #{search_sign} #{search_period}." %>
-    <% else %>
-    <strong><%=   search_period+' - '+search_sign.capitalize+' - ' %></strong>
-    <%=   horoscope.text %>
+    <% if (@current_user) %>
+      <% search_sign =  @current_user.astro_sign %>
+      <% search_period = @when_choice %>
+      <% case search_period %>
+      <% when 'Today' %>
+      <%   arg_path = 'daily/' %>
+      <% when 'This Week' %>
+      <%   arg_path = 'weekly-overview/' %>
+      <% when 'This Month' %>
+      <%   arg_path = 'monthly-overview/' %>
+      <% end %>
+      <% url = "http://www.astrology.com/horoscope/" %>
+      <% search_url = url+arg_path+search_sign + ".html" %>
+      <% response = RestClient.get(search_url) %>
+      <% html = response.body %>
+      <% #html = open('/astro_test.html') %>
+      <% document = Nokogiri::HTML(html) %>
+      <% horoscope = document.css('.page-horoscope-text') %>
+      <% if horoscope.empty? %>
+        <%=   "no horoscope found for #{search_sign} #{search_period}." %>
+      <% else %>
+        <strong><%=   search_period+' - '+search_sign.capitalize+' - ' %></strong>
+      <%=   horoscope.text %>
+      <% end %>
     <% end %>
   </div>
 </div>

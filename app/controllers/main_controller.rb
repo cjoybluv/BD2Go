@@ -31,7 +31,7 @@ class MainController < ApplicationController
         if (time.month==2 && time.year%4==0)
           end_day = 29
         end
-        end_date = Date.new(time.year,time.month,end_day)
+        end_date = Date.new(time.year,time.month,end_day)+1
       end
 
       @notes = User.find(session[:user_id]).notes

@@ -104,7 +104,8 @@ $(function() {
     if (targetTitle !== '') {
       for (var m=0;m<markers.length;m++) {
         if (markers[m]._geojson.properties.title==targetTitle) {
-          map.panTo([markers[m]._geojson.geometry.coordinates[1],markers[m]._geojson.geometry.coordinates[0]]);
+          var latAdj = (.017 * 12) / (map.getZoom() * 14);
+          map.panTo([markers[m]._geojson.geometry.coordinates[1]+latAdj,markers[m]._geojson.geometry.coordinates[0]]);
           markers[m].openPopup();
         }
       }
