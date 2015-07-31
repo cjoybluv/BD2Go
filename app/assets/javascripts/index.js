@@ -14,7 +14,7 @@ $(function() {
 
       var markers = [];
 
-      console.log('on load', gon.customers);
+      // console.log('on load', gon.customers);
 
       // lat.lng  47.600 - 47.700     SEATTLE ZONE
       //          -122.300 - -122.400
@@ -52,7 +52,7 @@ $(function() {
             return false;
           }
         });
-        console.log('load note markers : customer',customer);
+        // console.log('load note markers : customer',customer);
         if (customer.length>0) {
           var pin = pinCustomer(customer[0]);
         }
@@ -64,12 +64,12 @@ $(function() {
       map.on('popupopen',function(centerMarker) {
         var latAdj = (.017 * 12) / (map.getZoom() * 14);
         map.panTo([centerMarker.popup._latlng.lat+latAdj,centerMarker.popup._latlng.lng]);
-        console.log(map.getZoom(),latAdj);
+        // console.log(map.getZoom(),latAdj);
       });
 
 
       $('#mapButton').on('click', function(e) {
-        console.log('mapButton Clicked!',e,markers);
+        // console.log('mapButton Clicked!',e,markers);
         for (var c=0;c<gon.customers.length;c++) {
           map.removeLayer(markers[c]);
         }
@@ -78,11 +78,11 @@ $(function() {
 
       $('.BD2Go-marker').on('click', function(e) {
         var noteId = e.currentTarget.dataset.noteid;
-        console.log('BD2Go-marker:click : noteId',noteId);
-        console.log('BD2Go-marker:click : gon.customers',gon.customers);
+        // console.log('BD2Go-marker:click : noteId',noteId);
+        // console.log('BD2Go-marker:click : gon.customers',gon.customers);
         var targetTitle = '';
         if (typeof noteId !== 'undefined') {
-          console.log(gon.notes);
+          // console.log(gon.notes);
           var note = gon.notes.filter(function (note) {
             if (note.id == noteId) {
               return true;
@@ -117,7 +117,7 @@ $(function() {
 
       $('.completed-button').on('click', function(e) {
         var noteId = e.currentTarget.dataset.id;
-        console.log('completed button clicked',notedId);
+        // console.log('completed button clicked',notedId);
       });
 
 
