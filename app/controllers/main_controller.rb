@@ -1,7 +1,6 @@
 class MainController < ApplicationController
 
   def index
-    @users = User.all
     @customers = []
     @notes = []
     if (session[:user_id])
