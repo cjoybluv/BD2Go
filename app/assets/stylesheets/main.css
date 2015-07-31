@@ -11,6 +11,9 @@
   line-height: 12px;
   margin-bottom: 15px;
 }
+.note-block p {
+  margin-bottom: 2px;
+}
 .note-due {
   font-weight: 900;
 }
@@ -25,6 +28,9 @@
 .customer-block {
   line-height: 12px;
   margin-bottom: 15px;
+}
+.customer-block p {
+  margin-bottom: 2px;
 }
 .customer-name {
   font-weight: 900;
