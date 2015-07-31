@@ -34,11 +34,11 @@
         <%= f.text_area :body, :class => 'input-small' %>
       </div>
       <div id="bd2go-task" class="col-sm-5 hidden">
-        <%= f.date_select :due_date_time, :class => 'input-small' %>
-        <span class="text-center"><%= f.check_box :completed %></span>
+        <%= f.date_select :due_date_time, :label => 'Due Date', :class => 'input-small' %>
+        <span class="text-center"><%= f.check_box :completed, :label => 'Completed?', :value => 0 %></span>
       </div>
       <div id="bd2go-appt" class="col-sm-5 hidden">
-        <%= f.datetime_local_field :due_date_time, :class => 'input-small' %>
+        <%= f.datetime_local_field :due_date_time, :label => 'Appt Date & Time', :class => 'input-large' %>
       </div>
     </div>
 

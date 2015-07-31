@@ -1,4 +1,28 @@
 
+COMPLETED CHECKBOX >>  GO BIG
+value="0" data-toggle="checkbox-x" data-size="lg"
+ :data => {:addr => 'here'}
+          <span class="text-center">
+<%= f.check_box :completed, :label => 'Completed?', :value => '0', :data => {:toggle => 'checkbox-x',:size=>'lg'} %>
+          </span>
+
+
+
+
+<div class="btn-group btn-group-justified" role="group" aria-label="...">
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
 JOKE SCRAPE:
 www.laughfactor.com/jokes/joke-of-the-day
 $('.joke-area>.line:first .joke3-pop-box p').text();
