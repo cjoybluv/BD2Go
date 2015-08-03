@@ -2,9 +2,7 @@
 COMPLETED CHECKBOX >>  GO BIG
 value="0" data-toggle="checkbox-x" data-size="lg"
  :data => {:addr => 'here'}
-          <span class="text-center">
-<%= f.check_box :completed, :label => 'Completed?', :value => '0', :data => {:toggle => 'checkbox-x',:size=>'lg'} %>
-          </span>
+          <span class="text-center"><%= f.check_box :completed, :label => 'Completed?', :value => '0', :data => {:toggle => 'checkbox-x',:size=>'lg'} %></span>
 
 
 
