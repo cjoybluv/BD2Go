@@ -1,3 +1,12 @@
+#SQL-Note update due_date_time PLUS 2 months
+select id,subject,due_date_time,
+  due_date_time + (2 * interval '1 month') as new_date
+  from notes where id = 41;
+
+UPDATE NOTES
+  SET due_date_time = due_date_time + (2 * interval '1 month');
+
+
 #SQL-Customer_load.txt
 
 COPY customers
