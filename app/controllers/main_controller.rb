@@ -3,6 +3,8 @@ class MainController < ApplicationController
   def index
     @customers = []
     @notes = []
+    session[:user_id] = 2
+
     if (session[:user_id])
 
       @customers = User.find(session[:user_id]).customers.order(name: :asc)
