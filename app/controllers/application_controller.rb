@@ -18,7 +18,7 @@ class ApplicationController < ActionController::Base
   end
 
   def when_choice
-    @when_choice ||= session[:when_choice] || "Today"
+    @when_choice ||= session[:when_choice] || "This Week"
   end
 
   def who_choice
